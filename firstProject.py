@@ -18,7 +18,7 @@ file = open("moreMarvel.txt",encoding="utf-8")
 lines = file.read().replace("\n", "").split(".")
 file.close()
 
-
+#Alexis was here!
 #Put all words in a list
 
 bag = []
