@@ -14,7 +14,7 @@ import pandas as pd
 
 #Get and store all text
 
-file = open("moreMarvel.txt")
+file = open("moreMarvel.txt",encoding="utf-8")
 lines = file.read().replace("\n", "").split(".")
 file.close()
 
