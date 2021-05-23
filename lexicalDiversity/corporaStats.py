@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import operator
 
 def get_words(text):
-    file = open(text)
+    file = open(text, encoding = "utf-8")
     lines = file.read().replace("\n", "").split(".")
     file.close()
 
@@ -37,7 +37,7 @@ def word_lengths(text):
     plt.savefig(text + ".png")
 
 def sentence_lengths(text):
-    file = open(text)
+    file = open(text, encoding = "utf-8")
     sentences = file.read().replace("\n", "").split(".")
     file.close()
     sentence_lengths = [ len(setence.split(" ")) for setence in sentences ]
@@ -66,9 +66,13 @@ def top_bigrams(text):
 lexicalDiversity = input("Would you like the lexical diversity of each corpus? (y/n)\n")
 if ( lexicalDiversity == "y" ):
     print("\tLexical Diversity: " + str(lexical_diversity("moreMarvel.txt")))
+    print()
     print("\tLexical Diversity: " + str(lexical_diversity("billyjoel.txt")))
+    print()
     print("\tLexical Diversity: " + str(lexical_diversity("Sherlock.txt")))
+    print()
     print("\tLexical Diversity: " + str(lexical_diversity("HP1+2.txt")))
+    print()
 
 wordLengths = input("Would you like the word lengths of each corpus?  (y/n)\n")
 if ( wordLengths == "y" ):
