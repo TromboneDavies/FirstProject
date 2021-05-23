@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import operator
 
+# Takes a file name and returns a list of all the words
 def get_words(text):
     file = open(text, encoding = "utf-8")
     lines = file.read().replace("\n", "").split(".")
@@ -20,12 +21,14 @@ def get_words(text):
 
     return words
 
+# Returns the lexical diversity for a provided file
 def lexical_diversity(text):
     words = get_words(text)
     print(text + ":\n\ttypes: " + str(len(set(words))) + "\n\ttokens: " +
     str(len(words)))
     return ( len( set( words ) ) / len(words) )
 
+# Creates a file of a histogram of the word lengths of a file
 def word_lengths(text):
     words = get_words(text)
 
@@ -36,6 +39,8 @@ def word_lengths(text):
     plt.title(text)
     plt.savefig(text + ".png")
 
+# Creates a file of a histogram of the sentence lengths (in number of words) of
+# a file
 def sentence_lengths(text):
     file = open(text, encoding = "utf-8")
     sentences = file.read().replace("\n", "").split(".")
@@ -47,6 +52,7 @@ def sentence_lengths(text):
     plt.title(text)
     plt.savefig(text + "Sentence.png")
 
+# Prints the top 10 bigrams and how often they appear in the provided file
 def top_bigrams(text):
     words = get_words(text)
     bigrams = list(nltk.bigrams(words))
