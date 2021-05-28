@@ -42,10 +42,7 @@ def word_lengths(text):
 # Creates a file of a histogram of the sentence lengths (in number of words) of
 # a file
 def sentence_lengths(text):
-    file = open(text, encoding = "utf-8")
-    sentences = file.read().replace("\n", "").split(".")
-    file.close()
-    sentence_lengths = [ len(setence.split(" ")) for setence in sentences ]
+    file = open(text, encoding = "utf-8") sentences = file.read().replace("\n", ".").split(".") file.close() sentence_lengths = [ len(setence.split(" ")) for setence in sentences ]
 
     plt.clf()
     plt.hist(sentence_lengths, bins=range(1,40), density = True)
@@ -68,6 +65,9 @@ def top_bigrams(text):
     for i in range(1, 11):
         print("\t" + str(topBiFreq[-i]))
     print()
+
+def top_words(text):
+    words = get_words(text)
 
 lexicalDiversity = input("Would you like the lexical diversity of each corpus? (y/n)\n")
 if ( lexicalDiversity == "y" ):
@@ -101,3 +101,9 @@ if ( topBigrams == "y" ):
     top_bigrams("Sherlock.txt")
     top_bigrams("HP1+2.txt")
 
+topBigrams = input("Would you like the 20 most distinctive words for each corpus? (y/n)\n")
+if ( topBigrams == "y" ):
+    top_words("moreMarvel.txt")
+    top_words("billyjoel.txt")
+    top_words("Sherlock.txt")
+    top_words("HP1+2.txt")
